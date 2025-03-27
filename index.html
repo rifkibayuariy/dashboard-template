@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="assets/css/tailwind.css" />
+    <link rel="stylesheet" href="https://cdn.hugeicons.com/font/hgi-stroke-rounded.css" />
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+    </style>
+    <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body class="bg-gray-100">
+    <div id="sm-overlay" class="fixed inset-0 bg-black hidden md:hidden opacity-75"></div>
+
+    <aside id="sidebar"
+        class="w-screen h-24 md:fixed md:top-0 md:left-0 md:w-100 md:h-screen px-8 pt-8 pb-0 md:pb-8 transition-all duration-500">
+        <div class="px-8 h-full flex flex-col bg-white shadow-sm rounded-xl" id="sidebar-container">
+            <div class="flex h-full items-center md:hidden" id="navbar">
+                <button type="button" id="navbar-button" class="inline-flex flex-none cursor-pointer">
+                    <i class="hgi hgi-stroke hgi-menu-01 text-2xl font-bold"></i>
+                </button>
+                <div class="flex-auto flex justify-end">
+                    <span class="text-right font-bold text-xl ff-pjs">Dashboard</span>
+                </div>
+            </div>
+            <div class="md:flex items-center py-8 hidden" id="sidebar-header">
+                <button type="button" id="sidebar-button" class="inline-flex flex-none my-0.5 cursor-pointer">
+                    <i class="hgi hgi-stroke hgi-menu-01 text-3xl font-bold"></i>
+                </button>
+                <a href="" class="flex-auto flex justify-center items-center expand-content">
+                    <img src="assets/images/logo.png" class="h-8 mr-2">
+                    <h1 class="font-bold text-2xl ff-pjs">Techtona</h1>
+                </a>
+            </div>
+            <div class="md:hidden items-center py-8 hidden" id="sm-sidebar-header">
+                <a href="" class="flex-auto flex items-center expand-content">
+                    <img src="assets/images/logo.png" class="h-8 mr-4">
+                    <h1 class="font-bold text-2xl ff-pjs">Techtona</h1>
+                </a>
+                <button type="button" id="sidebar-button-close" class="inline-flex flex-none my-0.5 cursor-pointer">
+                    <i class="hgi hgi-stroke hgi-cancel-01 text-3xl font-bold"></i>
+                </button>
+            </div>
+            <div class="md:flex flex-col h-full hidden" id="sidebar-menu">
+                <div class="grow"></div>
+                <div class="grow-0 pt-2">
+                    <a href="" class="flex items-center border-t pt-6 pb-8 border-gray-200">
+                        <img src="assets/images/profile.png" class="h-8 flex-none mr-8 rounded-full">
+                        <span class="flex-auto text-left text-lg ff-pjs text-nowrap expand-content">Rifki
+                            Bayu Ariyanto</span>
+                        <button type="button" class="flex-none mr-2 expand-content">
+                            <i class="hgi hgi-stroke hgi-arrow-up-01 text-xl"></i>
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <main class="md:ml-100 h-screen px-8 pt-8 transition-all duration-500">
+        <div class="w-full h-full md:pt-64 md:pr-100">
+            <div class="md:pl-8 mt-8">
+                <h1 class="text-4xl font-bold ff-pjs mb-6 md:mb-8">Techtona</h1>
+                <p class="text-base md:text-xl font-light ff-pjs">Lorem ipsum dolor sit amet, consectetur adipisicing
+                    elit. Amet
+                    repellendus,
+                    facilis
+                    inventore recusandae aspernatur excepturi est velit fugiat, rem eligendi in omnis quaerat rerum non
+                    aperiam
+                    quo dolor necessitatibus laboriosam labore atque magni incidunt. Debitis doloribus libero incidunt
+                    itaque
+                    vero ullam, quaerat, consequatur magnam quasi dicta maiores, molestias optio neque dolore labore!
+                    Quia
+                    possimus, accusamus odit maxime accusantium saepe id debitis mollitia repellendus iusto incidunt
+                    placeat.
+                    Explicabo sapiente inventore ab? Voluptatum odit nobis consequuntur voluptates dolores sint
+                    laudantium.
+                    Natus, quod!</p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <script>
+            const smOverlay = document.getElementById("sm-overlay");
+
+            const sidebarNavbar = document.querySelector("aside#sidebar");
+            const main = document.querySelector("main");
+            const sidebarButton = document.querySelector("button#sidebar-button");
+            const sidebarButtonClose = document.querySelector("button#sidebar-button-close");
+            const sidebarHeader = document.querySelector("#sidebar-header");
+            const smSidebarHeader = document.querySelector("#sm-sidebar-header");
+            const navbarButton = document.querySelector("button#navbar-button");
+            const navbarHeader = document.querySelector("#navbar");
+
+            function openCloseNavbar() {
+                let sidebarContainer = sidebarNavbar.querySelector("#sidebar-container");
+                let sidebarMenu = sidebarNavbar.querySelector("#sidebar-menu");
+
+                navbarHeader.classList.toggle("hidden");
+
+                sidebarMenu.classList.toggle("hidden");
+                sidebarMenu.classList.toggle("flex");
+                smSidebarHeader.classList.toggle("hidden");
+                smSidebarHeader.classList.toggle("flex");
+
+                sidebarNavbar.classList.toggle("w-screen");
+                sidebarNavbar.classList.toggle("w-100");
+                sidebarNavbar.classList.toggle("h-164");
+                sidebarNavbar.classList.toggle("h-24");
+                sidebarNavbar.classList.toggle("fixed");
+                sidebarNavbar.classList.toggle("left-0");
+                sidebarNavbar.classList.toggle("top-0");
+
+                smOverlay.classList.toggle("hidden");
+            };
+
+            sidebarButton.addEventListener("click", () => {
+                sidebarNavbar.classList.toggle("md:w-100");
+                sidebarNavbar.classList.toggle("md:w-40");
+
+                main.classList.toggle("md:ml-100");
+                main.classList.toggle("md:ml-40");
+
+                let expandContent = sidebarNavbar.querySelectorAll(".expand-content");
+
+                expandContent.forEach(item => {
+                    item.classList.toggle("md:hidden");
+                });
+            });
+
+            sidebarButtonClose.addEventListener("click", openCloseNavbar);
+            navbarButton.addEventListener("click", openCloseNavbar);
+            smOverlay.addEventListener("click", openCloseNavbar);
+        </script>
+    </footer>
+</body>
+
+</html>
