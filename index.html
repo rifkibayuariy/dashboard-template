@@ -9,6 +9,19 @@
     <link rel="stylesheet" href="https://cdn.hugeicons.com/font/hgi-stroke-rounded.css" />
     <style>
         @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+
+        .active {
+            background-color: var(--color-gray-900);
+            color: white;
+        }
+
+        .active span {
+            font-weight: bold;
+        }
+
+        .active:hover {
+            background-color: var(--color-gray-800);
+        }
     </style>
     <link rel="stylesheet" href="assets/css/style.css" />
 </head>
@@ -19,6 +32,7 @@
     <aside id="sidebar"
         class="w-screen max-w-screen h-24 md:fixed md:top-0 md:left-0 md:w-100 md:h-screen px-8 pt-8 pb-0 md:pb-8 transition-all duration-500 ff-pjs">
         <div class="px-8 h-full flex flex-col bg-white shadow-sm rounded-xl" id="sidebar-container">
+
             <div class="flex h-full items-center md:hidden" id="navbar">
                 <button type="button" id="navbar-button" class="inline-flex flex-none cursor-pointer">
                     <i class="hgi hgi-stroke hgi-menu-01 text-2xl font-bold"></i>
@@ -27,54 +41,91 @@
                     <span class="text-right font-bold text-xl">Dashboard</span>
                 </div>
             </div>
+
             <div class="md:flex items-center py-8 hidden" id="sidebar-header">
-                <button type="button" id="sidebar-button" class="inline-flex flex-none my-0.5 cursor-pointer">
+                <button type="button" id="sidebar-button" class="hidden md:inline-flex flex-none my-0.5 cursor-pointer">
                     <i class="hgi hgi-stroke hgi-menu-01 text-3xl font-bold"></i>
                 </button>
-                <a href="" class="flex-auto flex justify-center items-center expand-content">
+                <a href="" class="flex-auto flex md:justify-center items-center expand-content">
                     <img src="assets/images/logo.png" class="h-8 mr-2">
                     <h1 class="font-bold text-2xl">Techtona</h1>
                 </a>
-            </div>
-            <div class="md:hidden items-center py-8 hidden" id="sm-sidebar-header">
-                <a href="" class="flex-auto flex items-center expand-content">
-                    <img src="assets/images/logo.png" class="h-8 mr-4">
-                    <h1 class="font-bold text-2xl">Techtona</h1>
-                </a>
-                <button type="button" id="sidebar-button-close" class="inline-flex flex-none my-0.5 cursor-pointer">
+                <button type="button" id="sidebar-button-close"
+                    class="inline-flex md:hidden flex-none my-0.5 cursor-pointer">
                     <i class="hgi hgi-stroke hgi-cancel-01 text-3xl font-bold"></i>
                 </button>
             </div>
+
             <div class="md:flex flex-col h-full hidden" id="sidebar-menu">
                 <div class="grow">
-                    <ul class="-mx-3">
-                        <li>
+                    <ul class="-mx-3 overflow-x-hidden">
+                        <li class="mb-1">
+                            <a href="" main-content="#dashboard-content"
+                                class="flex items-center gap-4 py-1.5 px-3 rounded-xl hover:bg-gray-100 menu-item active">
+                                <div class="w-8 min-w-8 text-center">
+                                    <i class="hgi hgi-stroke hgi-dashboard-browsing text-2xl font-normal"></i>
+                                </div>
+                                <span class="flex-auto">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="mb-1">
+                            <a href="" main-content="#members-content"
+                                class="flex items-center gap-4 py-1.5 px-3 rounded-xl hover:bg-gray-100 menu-item">
+                                <div class="w-8 min-w-8 text-center">
+                                    <i class="hgi hgi-stroke hgi-user-group text-2xl font-normal"></i>
+                                </div>
+                                <span class="flex-auto">Members</span>
+                            </a>
+                        </li>
+                        <li class="mb-1">
                             <a href=""
-                                class="flex items-center gap-4 py-1.5 px-3 rounded-xl overflow-hidden bg-gray-900 text-white">
+                                class="flex items-center gap-4 py-1.5 px-3 rounded-xl hover:bg-gray-100 menu-item has-child">
                                 <div class="w-8 min-w-8 text-center">
-                                    <i class="hgi hgi-stroke hgi-dashboard-browsing text-2xl"></i>
+                                    <i class="hgi hgi-stroke hgi-book-02 text-2xl font-normal"></i>
                                 </div>
-                                <span class="font-bold">Dashboard</span>
+                                <span class="flex-auto">Master</span>
+                                <div class="inline-flex text-center icon-accordion">
+                                    <i class="hgi hgi-stroke hgi-arrow-down-01 text-xl font-normal"></i>
+                                </div>
                             </a>
-                        </li>
-                        <li>
-                            <a href="" class="flex items-center gap-4 py-1.5 px-3 rounded-xl overflow-hidden">
-                                <div class="w-8 min-w-8 text-center">
-                                    <i class="hgi hgi-stroke hgi-user-group text-2xl"></i>
+                            <div class="ml-7 h-0 max-h-fit overflow-hidden child-menu-01 transition-all duration-500">
+                                <div class="py-1.5 px-1.5 rounded-xl bg-gray-100">
+                                    <a href="" main-content="#settings-content"
+                                        class="flex items-center gap-5 py-1.5 px-3 rounded-xl hover:bg-gray-50 menu-item">
+                                        <div class="w-5 min-w-5 text-center">
+                                            <i class="hgi hgi-stroke hgi-gitbook text-xl font-normal"></i>
+                                        </div>
+                                        <span class="flex-auto">Category</span>
+                                    </a>
+                                    <a href="" main-content="#settings-content"
+                                        class="flex items-center gap-5 py-1.5 px-3 rounded-xl hover:bg-gray-50 menu-item">
+                                        <div class="w-5 min-w-5 text-center">
+                                            <i class="hgi hgi-stroke hgi-package text-xl font-normal"></i>
+                                        </div>
+                                        <span class="flex-auto">Product</span>
+                                    </a>
+                                    <a href="" main-content="#settings-content"
+                                        class="flex items-center gap-5 py-1.5 px-3 rounded-xl hover:bg-gray-50 menu-item">
+                                        <div class="w-5 min-w-5 text-center">
+                                            <i class="hgi hgi-stroke hgi-building-06 text-xl font-normal"></i>
+                                        </div>
+                                        <span class="flex-auto">Branch</span>
+                                    </a>
                                 </div>
-                                <span>Members</span>
-                            </a>
+                            </div>
                         </li>
-                        <li>
-                            <a href="" class="flex items-center gap-4 py-1.5 px-3 rounded-xl overflow-hidden">
+                        <li class="mb-1">
+                            <a href="" main-content="#settings-content"
+                                class="flex items-center gap-4 py-1.5 px-3 rounded-xl hover:bg-gray-100 menu-item">
                                 <div class="w-8 min-w-8 text-center">
-                                    <i class="hgi hgi-stroke hgi-settings-04 text-2xl"></i>
+                                    <i class="hgi hgi-stroke hgi-settings-04 text-2xl font-normal"></i>
                                 </div>
-                                <span>Settings</span>
+                                <span class="flex-auto">Settings</span>
                             </a>
                         </li>
                     </ul>
                 </div>
+
                 <div class="grow-0 pt-2">
                     <a href="" class="flex items-center border-t pt-6 pb-8 border-gray-200 overflow-hidden">
                         <img src="assets/images/profile.png" class="h-8 flex-none mr-8 rounded-full">
@@ -88,26 +139,40 @@
             </div>
         </div>
     </aside>
+
     <main class="md:ml-100 pl-8 pr-8 md:pr-16 pt-8 transition-all duration-500 ff-pjs">
-        <div class="w-full mt-10 md:mt-12">
-            <h1 class="text-3xl md:text-4xl font-bold mb-6 md:mb-8">Techtona</h1>
-            <p class="text-base font-light">Lorem ipsum dolor sit amet, consectetur adipisicing
-                elit. Amet
-                repellendus,
-                facilis
-                inventore recusandae aspernatur excepturi est velit fugiat, rem eligendi in omnis quaerat rerum non
-                aperiam
-                quo dolor necessitatibus laboriosam labore atque magni incidunt. Debitis doloribus libero incidunt
-                itaque
-                vero ullam, quaerat, consequatur magnam quasi dicta maiores, molestias optio neque dolore labore!
-                Quia
-                possimus, accusamus odit maxime accusantium saepe id debitis mollitia repellendus iusto incidunt
-                placeat.
-                Explicabo sapiente inventore ab? Voluptatum odit nobis consequuntur voluptates dolores sint
-                laudantium.
-                Natus, quod!</p>
+        <div id="dashboard-content" class="menu-content">
+            <div class="w-full mt-10 md:mt-12">
+                <h1 class="text-3xl md:text-4xl font-bold mb-6 md:mb-8">Techtona</h1>
+                <p class="text-base font-light">Lorem ipsum dolor sit amet, consectetur adipisicing
+                    elit. Amet
+                    repellendus,
+                    facilis
+                    inventore recusandae aspernatur excepturi est velit fugiat, rem eligendi in omnis quaerat rerum non
+                    aperiam
+                    quo dolor necessitatibus laboriosam labore atque magni incidunt. Debitis doloribus libero incidunt
+                    itaque
+                    vero ullam, quaerat, consequatur magnam quasi dicta maiores, molestias optio neque dolore labore!
+                    Quia
+                    possimus, accusamus odit maxime accusantium saepe id debitis mollitia repellendus iusto incidunt
+                    placeat.
+                    Explicabo sapiente inventore ab? Voluptatum odit nobis consequuntur voluptates dolores sint
+                    laudantium.
+                    Natus, quod!</p>
+            </div>
+        </div>
+        <div id="members-content" class="menu-content hidden">
+            <div class="w-full mt-10 md:mt-12">
+                <h1 class="text-3xl md:text-4xl font-bold mb-6 md:mb-8">Members</h1>
+            </div>
+        </div>
+        <div id="settings-content" class="menu-content hidden">
+            <div class="w-full mt-10 md:mt-12">
+                <h1 class="text-3xl md:text-4xl font-bold mb-6 md:mb-8">Settings</h1>
+            </div>
         </div>
     </main>
+
     <footer>
         <script>
             const smOverlay = document.getElementById("sm-overlay");
@@ -117,9 +182,10 @@
             const sidebarButton = document.querySelector("button#sidebar-button");
             const sidebarButtonClose = document.querySelector("button#sidebar-button-close");
             const sidebarHeader = document.querySelector("#sidebar-header");
-            const smSidebarHeader = document.querySelector("#sm-sidebar-header");
             const navbarButton = document.querySelector("button#navbar-button");
             const navbarHeader = document.querySelector("#navbar");
+            const sidebarMenu = document.querySelector("#sidebar-menu ul");
+            const sidebarMenuItem = sidebarMenu.querySelectorAll(".menu-item");
 
             function openCloseNavbar() {
                 let sidebarContainer = sidebarNavbar.querySelector("#sidebar-container");
@@ -129,13 +195,13 @@
 
                 sidebarMenu.classList.toggle("hidden");
                 sidebarMenu.classList.toggle("flex");
-                smSidebarHeader.classList.toggle("hidden");
-                smSidebarHeader.classList.toggle("flex");
+                sidebarHeader.classList.toggle("hidden");
+                sidebarHeader.classList.toggle("flex");
 
                 sidebarNavbar.classList.toggle("w-screen");
                 sidebarNavbar.classList.toggle("w-100");
                 sidebarNavbar.classList.toggle("h-200");
-                sidebarNavbar.classList.toggle("max-h-9/10");
+                sidebarNavbar.classList.toggle("sm:max-h-9/10");
                 sidebarNavbar.classList.toggle("h-24");
                 sidebarNavbar.classList.toggle("fixed");
                 sidebarNavbar.classList.toggle("left-0");
@@ -156,11 +222,51 @@
                 expandContent.forEach(item => {
                     item.classList.toggle("md:hidden");
                 });
+
+                let childMenu01 = sidebarMenu.querySelectorAll(".child-menu-01");
+
+                childMenu01.forEach(cm => {
+                    cm.classList.toggle("md:ml-0");
+                });
             });
 
             sidebarButtonClose.addEventListener("click", openCloseNavbar);
             navbarButton.addEventListener("click", openCloseNavbar);
             smOverlay.addEventListener("click", openCloseNavbar);
+
+            sidebarMenuItem.forEach(a => {
+                a.addEventListener("click", (e) => {
+                    e.preventDefault();
+
+                    if (a.classList.contains("has-child")) {
+                        let cm = a.nextElementSibling;
+                        if (cm.classList.contains("h-0")) {
+                            let height = window.getComputedStyle(cm.firstElementChild).height;
+                            cm.style.height = height;
+                        } else {
+                            cm.removeAttribute("style");
+                        }
+                        cm.classList.toggle("h-0");
+                        cm.classList.toggle("mt-1");
+
+                        a.classList.toggle("border");
+                        a.classList.toggle("border-gray-200");
+                    } else {
+                        sidebarMenuItem.forEach(a => a.classList.remove("active"));
+                        a.classList.add("active");
+
+                        main.querySelectorAll(".menu-content").forEach(menu => {
+                            menu.classList.add("hidden");
+                        });
+
+                        let mainContent = a.getAttribute("main-content");
+
+                        main.querySelector(mainContent).classList.remove("hidden");
+
+                        if (!smOverlay.classList.contains("hidden")) openCloseNavbar();
+                    }
+                });
+            });
         </script>
     </footer>
 </body>
