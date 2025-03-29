@@ -30,7 +30,7 @@
     <div id="sm-overlay" class="fixed inset-0 bg-black hidden md:hidden opacity-75"></div>
 
     <aside id="sidebar"
-        class="w-screen max-w-screen max-h-9/10 h-24 md:fixed md:top-0 md:left-0 md:w-100 md:h-screen px-8 pt-8 pb-0 md:pb-8 transition-all duration-500 ff-pjs">
+        class="w-screen max-w-screen max-h-240 h-24 md:fixed md:top-0 md:left-0 md:w-100 md:h-screen px-8 pt-8 pb-0 md:pb-8 transition-all duration-500 ff-pjs">
         <div class="px-8 h-full flex flex-col bg-white shadow-sm rounded-xl" id="sidebar-container">
 
             <div class="flex h-full items-center md:hidden" id="navbar">
@@ -201,6 +201,7 @@
                 sidebarNavbar.classList.toggle("w-screen");
                 sidebarNavbar.classList.toggle("w-100");
                 sidebarNavbar.classList.toggle("h-200");
+                sidebarNavbar.classList.toggle("sm:max-h-9/10");
                 sidebarNavbar.classList.toggle("h-24");
                 sidebarNavbar.classList.toggle("fixed");
                 sidebarNavbar.classList.toggle("left-0");

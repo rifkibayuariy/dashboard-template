@@ -313,6 +313,24 @@
   .max-h-12 {
     max-height: calc(var(--spacing) * 12);
   }
+  .max-h-20 {
+    max-height: calc(var(--spacing) * 20);
+  }
+  .max-h-100 {
+    max-height: calc(var(--spacing) * 100);
+  }
+  .max-h-120 {
+    max-height: calc(var(--spacing) * 120);
+  }
+  .max-h-200 {
+    max-height: calc(var(--spacing) * 200);
+  }
+  .max-h-240 {
+    max-height: calc(var(--spacing) * 240);
+  }
+  .max-h-250 {
+    max-height: calc(var(--spacing) * 250);
+  }
   .max-h-fit {
     max-height: fit-content;
   }
@@ -578,6 +596,11 @@
   .sm\:max-h-9\/10 {
     @media (width >= 40rem) {
       max-height: calc(9/10 * 100%);
+    }
+  }
+  .sm\:max-h-200 {
+    @media (width >= 40rem) {
+      max-height: calc(var(--spacing) * 200);
     }
   }
   .md\:fixed {
