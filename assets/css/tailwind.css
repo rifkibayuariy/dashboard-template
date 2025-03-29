@@ -295,6 +295,15 @@
   .max-h-4 {
     max-height: calc(var(--spacing) * 4);
   }
+  .max-h-9 {
+    max-height: calc(var(--spacing) * 9);
+  }
+  .max-h-9\/10 {
+    max-height: calc(9/10 * 100%);
+  }
+  .max-h-10 {
+    max-height: calc(var(--spacing) * 10);
+  }
   .max-h-11 {
     max-height: calc(var(--spacing) * 11);
   }
